@@ -23,7 +23,7 @@ def bubble_sort(data):
             break 
 
 # Function that will be called from the main program
-def run_bubble_sort(list_size, num_trials):
+def run(list_size, num_trials):
     bubble_sort_tests = []
     average_time = 0
     for i in range(num_trials):
@@ -32,6 +32,5 @@ def run_bubble_sort(list_size, num_trials):
         bubble_sort(data)
         total_time = perf_counter() - start
         bubble_sort_tests.append(total_time)
-    average_time = sum(bubble_sort_tests) / num_trials
-    returns = (bubble_sort_tests, average_time)
-    return returns
+        average_time = sum(bubble_sort_tests) / num_trials
+    return average_time
