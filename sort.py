@@ -1,18 +1,16 @@
-# Bubble sort benchmark
-
+# External imports
 import random
 from time import perf_counter
 
+# Constants
 MAX_VALUE = 999999
-SIZE = 5000
 NUM_TRIALS = 5
 
-
+# Generate random numbers
 def generate_random_numbers(size):
     return list(random.randint(1, MAX_VALUE) for i in range(size))
 
-
-# implementation to be completed here
+# Bubble Sort Implementation
 def bubble_sort(data):
     n = len(data)
     for i in range(n):
@@ -24,14 +22,16 @@ def bubble_sort(data):
         if not swapped:
             break 
 
-
-total_time = 0.0
-
-for i in range(NUM_TRIALS):
-    data = generate_random_numbers(SIZE)
-    start = perf_counter()
-    bubble_sort(data)
-    total_time += perf_counter() - start
-
-average_time = total_time / NUM_TRIALS
-print(f"{SIZE} numbers sorted in {average_time:.3f} seconds")
+# Function that will be called from the main program
+def run_bubble_sort(list_size, num_trials):
+    bubble_sort_tests = []
+    average_time = 0
+    for i in range(num_trials):
+        data = generate_random_numbers(list_size)
+        start = perf_counter()
+        bubble_sort(data)
+        total_time = perf_counter() - start
+        bubble_sort_tests.append(total_time)
+    average_time = sum(bubble_sort_tests) / num_trials
+    returns = (bubble_sort_tests, average_time)
+    return returns
