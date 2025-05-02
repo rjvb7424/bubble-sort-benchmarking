@@ -6,7 +6,7 @@
 #include <time.h>
 
 #define MAX_VALUE 999999
-#define MAX_SIZE 400 // Match LIST_SIZE in Python
+#define MAX_SIZE 500
 #define NUM_TRIALS 5
 
 // Function to generate random numbers
